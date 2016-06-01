@@ -103,4 +103,22 @@ abstract class RepositoryTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals([1], $this->repository->find('complet', 'phpunit'));
     }
+
+    public function test_repository_finds_term_with_special_characters_and_spaces()
+    {
+        $first = new Index(1, 'php arm0ry i$ awe$om3');
+
+        $this->repository->store($first, 'phpunit');
+
+        $this->assertEquals([1], $this->repository->find('php arm0ry', 'phpunit'));
+    }
+
+    public function test_repository_finds_term_with_mixed_case()
+    {
+        $first = new Index(1, 'Complete');
+
+        $this->repository->store($first, 'phpunit');
+
+        $this->assertEquals([1], $this->repository->find('comp', 'phpunit'));
+    }
 }

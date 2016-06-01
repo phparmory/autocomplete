@@ -2,6 +2,8 @@
 
 namespace Armory\Autocomplete;
 
+use Armory\Autocomplete\Str;
+
 final class Index
 {
     /**
@@ -25,7 +27,7 @@ final class Index
     public function __construct(string $id, string $term)
     {
         $this->id = $id;
-        $this->term = $term;
+        $this->term = Str::clean($term);
     }
 
     /**
@@ -50,13 +52,6 @@ final class Index
             return [];
         }
 
-        $permutations = [];
-        $count = strlen($this->term) - ($min - 1);
-
-        for ($i = 0; $i < $count; $i++) {
-            $permutations[] = substr($this->term, 0, $i + $min);
-        }
-
-        return $permutations;
+        return Str::permutations($this->term, $min);
     }
 }

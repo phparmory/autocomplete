@@ -36,7 +36,7 @@ use Predis\Client;
 
 $autocomplete = new Autocomplete(new RedisRepository(new Client));
 
-$autocomplete->index(1, 'armory', 'php');
+$autocomplete->index(1, 'Spiderman', 'movies');
 
-$autocomplete->find('arm', 'php'); // Returns [1]
+$autocomplete->find('spider', 'movies'); // Returns [1]
 ```

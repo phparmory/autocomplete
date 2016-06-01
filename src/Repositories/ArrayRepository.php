@@ -4,6 +4,7 @@ namespace Armory\Autocomplete\Repositories;
 
 use Armory\Autocomplete\Contracts\RepositoryInterface;
 use Armory\Autocomplete\Index;
+use Armory\Autocomplete\Str;
 
 final class ArrayRepository implements RepositoryInterface
 {
@@ -38,7 +39,7 @@ final class ArrayRepository implements RepositoryInterface
     public function find(string $term, string $namespace) : array
     {
         $namespaced = $this->data[$namespace] ?? [];
-        return $namespaced[$term] ?? [];
+        return $namespaced[Str::clean($term)] ?? [];
     }
 
     /**

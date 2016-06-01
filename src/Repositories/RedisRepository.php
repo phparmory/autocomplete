@@ -4,6 +4,7 @@ namespace Armory\Autocomplete\Repositories;
 
 use Armory\Autocomplete\Contracts\RepositoryInterface;
 use Armory\Autocomplete\Index;
+use Armory\Autocomplete\Str;
 use Predis\ClientInterface;
 
 /**
@@ -72,6 +73,8 @@ final class RedisRepository implements RepositoryInterface
      */
     public function find(string $term, string $namespace) : array
     {
+        $term = Str::clean($term);
+
         return $this->redis->smembers("autocomplete:{$term}:$namespace");
     }
 
