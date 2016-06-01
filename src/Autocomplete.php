@@ -3,6 +3,7 @@
 namespace Armory\Autocomplete;
 
 use Armory\Autocomplete\Contracts\RepositoryInterface;
+use Armory\Autocomplete\Index;
 
 final class Autocomplete
 {
