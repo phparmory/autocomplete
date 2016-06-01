@@ -35,13 +35,13 @@ final class Autocomplete
     }
 
     /**
-     * Search for a term under a namespace
-     * @param  string $searchs
-     * @param  string $namespace
-     * @return array
+     * Pass all method calls to the repository
+     * @param  string $method
+     * @param  array  $parameters
+     * @return mixed
      */
-    public function search(string $search, string $namespace) : array
+    public function __call(string $method, array $parameters)
     {
-        return $this->repository->find($search, $namespace);
+        return call_user_func_array([$this->repository, $method], $parameters);
     }
 }

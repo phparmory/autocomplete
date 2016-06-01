@@ -2,8 +2,6 @@
 
 namespace Armory\Autocomplete;
 
-use Assert\Assertion as A;
-
 final class Index
 {
     /**
