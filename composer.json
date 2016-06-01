@@ -1,4 +1,14 @@
 {
+    "name": "phparmory/autocomplete",
+    "description": "Simple autocomplete functionality",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Richard Crosby",
+            "email": "rphcrosby@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Armory\\Autocomplete\\": "src"
