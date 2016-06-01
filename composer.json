@@ -1,0 +1,19 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Armory\\Autocomplete\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Armory\\Autocomplete\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "beberlei/assert": "^2.5",
+        "predis/predis": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.3"
+    }
+}
